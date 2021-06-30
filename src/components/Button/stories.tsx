@@ -8,15 +8,29 @@ export default {
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
+		color: { control: 'color' },
   },
 } as Meta;
 
 // Create a master template for mapping args to render the Button component
-const Template: Story<Props> = (args) => <Button {...args} />;
+const Template: Story<Props> = (args) => <Button {...args} >Text</Button>;
 
-// Reuse that template for creating different stories
+export const Default = Template.bind({});
+
 export const Primary = Template.bind({});
-Primary.args = { label: "Primary 😃" };
+Primary.args = { type: 'primary' };
 
-export const Secondary = Template.bind({});
-Secondary.args = { ...Primary.args, label: "Secondary 😇" };
+export const Success = Template.bind({});
+Success.args = { type: 'success' };
+
+export const Info = Template.bind({});
+Info.args = { type: 'info' };
+
+export const Warning = Template.bind({});
+Warning.args = { type: 'warning' };
+
+export const Danger = Template.bind({});
+Danger.args = { type: 'danger' };
+
+export const Link = Template.bind({});
+Link.args = { type: 'link' };
